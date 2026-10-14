@@ -7,279 +7,35 @@
   <title>Jornada da Prosperidade</title>
   <meta name="description" content="Uma experiência guiada para reconhecer padrões, fortalecer escolhas e construir novos caminhos." />
   <style>
-    :root{
-      --bg:#020608; --bg2:#071011; --gold:#d6aa57; --gold2:#f0d28c;
-      --text:#f7f4ec; --muted:#b9b8b1; --line:rgba(214,170,87,.22);
-    }
-    *{box-sizing:border-box}
-    html,body{margin:0;min-height:100%;background:var(--bg);color:var(--text)}
-    body{
-      font-family:Arial,Helvetica,sans-serif;
-      background:
-        radial-gradient(circle at 50% 28%, rgba(22,78,72,.16), transparent 34rem),
-        linear-gradient(180deg,#020607 0%,#050b0c 62%,#020405 100%);
-    }
-    .alert{
-      width:100%;
-      text-align:center;
-      padding:8px 16px 9px;
-      background:#17120c;
-      border-bottom:1px solid rgba(204,158,73,.30);
-      color:#ffd98b;
-      font-size:32px;
-      line-height:1.15;
-      font-weight:900;
-      letter-spacing:1.2px;
-      text-transform:uppercase;
-      text-shadow:0 0 1px rgba(255,217,139,.25);
-    }
-    .wrap{width:min(980px,calc(100% - 34px));margin:0 auto;text-align:center}
-    .hero{padding:44px 0 28px}
-    .eyebrow{font-size:13px;letter-spacing:3px;text-transform:uppercase;color:var(--gold);margin-bottom:13px}
-    h1{font-family:Georgia,"Times New Roman",serif;font-weight:400;font-size:clamp(31px,5vw,57px);line-height:1.02;margin:0}
-    h1 .small{display:block;font-size:.56em;color:#e9e5da;margin-bottom:4px}
-    h1 .gold{
-      display:block;font-weight:700;letter-spacing:.06em;
-      background:linear-gradient(90deg,#b6812f,#f3d78d,#b6812f);
-      -webkit-background-clip:text;background-clip:text;color:transparent;
-    }
-
-    .vsl-headline{
-      width:min(920px,100%);
-      margin:0 auto;
-      font-family:Arial,Helvetica,sans-serif;
-      font-size:clamp(27px,3.25vw,42px);
-      line-height:1.08;
-      letter-spacing:-1.7px;
-      font-weight:400;
-      color:#f5f3ee;
-      text-align:center;
-    }
-    .vsl-headline strong{font-weight:800;color:#f5f3ee}
-    .vsl-headline .gold-inline{
-      color:#e4cd8f;
-      font-weight:800;
-    }
-    .vsl-sub{
-      width:min(650px,100%);
-      margin:24px auto 30px;
-      color:#aaaeb0;
-      font-size:18px;
-      line-height:1.45;
-      text-align:center;
-      font-weight:400;
-    }
-
-    .sub{
-      width:min(800px,100%);margin:20px auto 28px;color:#ddd9d0;
-      font-size:clamp(16px,2.1vw,20px);line-height:1.55;
-    }
-    .video-shell{
-      position:relative;width:min(430px,100%);margin:0 auto;
-      border:1px solid rgba(214,170,87,.32);border-radius:8px;padding:7px;
-      background:linear-gradient(145deg,rgba(214,170,87,.12),rgba(255,255,255,.015));
-      box-shadow:0 24px 80px rgba(0,0,0,.55);
-    }
-    .video{
-      aspect-ratio:9/16;display:flex;align-items:center;justify-content:center;
-      background:#000;border-radius:4px;overflow:hidden;position:relative;
-    }
-    .placeholder{padding:25px;color:#a8a8a8}
-    .play{
-      width:74px;height:74px;border-radius:50%;margin:0 auto 16px;
-      display:grid;place-items:center;border:1px solid rgba(214,170,87,.65);
-      background:rgba(214,170,87,.08);
-    }
-    .play:after{
-      content:"";display:block;margin-left:6px;border-top:11px solid transparent;
-      border-bottom:11px solid transparent;border-left:18px solid var(--gold2);
-    }
-    .placeholder strong{display:block;color:#eee;font-size:16px;margin-bottom:7px}
-    .placeholder span{font-size:13px}
-    .note{font-size:12px;color:#8e918d;margin:13px 0 0}
-    @media(max-width:600px){
-      body{overflow-x:hidden}
-
-      .vsl-headline{
-        font-size:clamp(23px,6.8vw,31px);
-        line-height:1.08;
-        letter-spacing:-1px;
-      }
-      .vsl-sub{
-        font-size:15px;
-        line-height:1.45;
-        margin:20px auto 24px;
-        max-width:350px;
-      }
-
-      .alert{
-        font-size:clamp(18px,6.2vw,26px);
-        padding:9px 10px 10px;
-        line-height:1.12;
-        letter-spacing:.7px;
-        white-space:nowrap;
-      }
-      .wrap{width:calc(100% - 24px);max-width:100%}
-      .hero{padding:30px 0 24px}
-      .eyebrow{font-size:11px;letter-spacing:2px;margin-bottom:11px}
-      h1{font-size:clamp(27px,9vw,38px);line-height:1.05}
-      h1 .small{font-size:.52em;line-height:1.25;margin:0 auto 7px;max-width:330px}
-      .sub{font-size:15px;line-height:1.48;margin:15px auto 21px;max-width:360px}
-      .video-shell{width:100%;padding:3px;border-radius:5px}
-      .video{width:100%;aspect-ratio:9/16}
-      .placeholder{padding:15px 10px}
-      .play{width:54px;height:54px;margin-bottom:11px}
-      .placeholder strong{font-size:14px}
-      .placeholder span{font-size:11px}
-      .note{font-size:11px;margin-top:10px}
-    }
-    @media(max-width:380px){
-      .alert{font-size:17px;letter-spacing:.35px;padding-left:5px;padding-right:5px}
-      .wrap{width:calc(100% - 18px)}
-      h1{font-size:27px}
-      .sub{font-size:14px}
-    }
-  
-    /* Responsividade reforçada */
-    img, video, iframe { max-width:100%; }
-    .alert{
-      min-height:54px;
-      display:flex;
-      align-items:center;
-      justify-content:center;
-      overflow:hidden;
-    }
-
-    @media (max-width: 768px){
-      html,body{width:100%;max-width:100%;overflow-x:hidden}
-      .alert{
-        width:100%;
-        min-height:48px;
-        padding:10px 12px;
-        font-size:clamp(16px,5.2vw,24px);
-        line-height:1.12;
-        letter-spacing:.4px;
-        white-space:normal;
-        text-align:center;
-      }
-      .wrap{
-        width:calc(100% - 24px);
-        max-width:100%;
-        margin-left:auto;
-        margin-right:auto;
-      }
-      .hero{padding:28px 0 20px}
-      .eyebrow{font-size:10px;letter-spacing:1.7px}
-      .vsl-headline{
-        width:100%;
-        max-width:560px;
-        font-size:clamp(22px,6.6vw,30px);
-        line-height:1.1;
-        letter-spacing:-.65px;
-        padding:0 2px;
-      }
-      .vsl-sub{
-        width:100%;
-        max-width:390px;
-        font-size:14px;
-        line-height:1.45;
-        margin:18px auto 22px;
-        padding:0 4px;
-      }
-      .video-shell{
-        width:min(100%,390px);
-        max-width:100%;
-        margin:0 auto;
-        padding:3px;
-      }
-      .video{
-        width:100%;
-        height:auto;
-        aspect-ratio:9/16;
-      }
-      .placeholder{padding:12px 8px}
-      .note{font-size:10px;padding:0 8px}
-    }
-
-    @media (max-width: 390px){
-      .alert{
-        min-height:44px;
-        padding:8px 7px;
-        font-size:clamp(15px,5vw,19px);
-        letter-spacing:.15px;
-      }
-      .wrap{width:calc(100% - 18px)}
-      .hero{padding-top:23px}
-      .vsl-headline{
-        font-size:clamp(21px,6.5vw,26px);
-        line-height:1.1;
-      }
-      .vsl-sub{font-size:13px;margin-top:16px}
-      .video-shell{width:min(100%,360px)}
-    }
-
+    :root{--bg:#020608;--gold:#d6aa57;--gold2:#f0d28c;--text:#f7f4ec}
+    *{box-sizing:border-box}html,body{margin:0;min-height:100%;background:var(--bg);color:var(--text)}
+    body{font-family:Arial,Helvetica,sans-serif;background:radial-gradient(circle at 50% 28%,rgba(22,78,72,.16),transparent 34rem),linear-gradient(180deg,#020607 0%,#050b0c 62%,#020405 100%);overflow-x:hidden}
+    .alert{width:100%;min-height:54px;display:flex;align-items:center;justify-content:center;text-align:center;padding:8px 16px 9px;background:#17120c;border-bottom:1px solid rgba(204,158,73,.30);color:#ffd98b;font-size:32px;line-height:1.15;font-weight:900;letter-spacing:1.2px;text-transform:uppercase}
+    .wrap{width:min(980px,calc(100% - 34px));margin:0 auto;text-align:center}.hero{padding:44px 0 28px}.eyebrow{font-size:13px;letter-spacing:3px;text-transform:uppercase;color:var(--gold);margin-bottom:13px}
+    .vsl-headline{width:min(920px,100%);margin:0 auto;font-size:clamp(27px,3.25vw,42px);line-height:1.08;letter-spacing:-1.7px;font-weight:400;color:#f5f3ee;text-align:center}.vsl-headline strong{font-weight:800}.gold-inline{color:#e4cd8f;font-weight:800}
+    .vsl-sub{width:min(650px,100%);margin:24px auto 30px;color:#aaaeb0;font-size:18px;line-height:1.45}.video-shell{position:relative;width:min(430px,100%);margin:0 auto;border:1px solid rgba(214,170,87,.32);border-radius:8px;padding:7px;background:linear-gradient(145deg,rgba(214,170,87,.12),rgba(255,255,255,.015));box-shadow:0 24px 80px rgba(0,0,0,.55)}
+    .video#vsl{display:block;background:transparent;border-radius:4px;overflow:visible;position:relative}.video#vsl vturb-smartplayer{width:100%!important;max-width:400px!important;margin:0 auto!important}.note{font-size:12px;color:#8e918d;margin:13px 0 0}
+    @media(max-width:768px){.alert{min-height:48px;padding:10px 12px;font-size:clamp(16px,5.2vw,24px);line-height:1.12;letter-spacing:.4px;white-space:normal}.wrap{width:calc(100% - 24px);max-width:100%}.hero{padding:28px 0 20px}.eyebrow{font-size:10px;letter-spacing:1.7px}.vsl-headline{width:100%;font-size:clamp(22px,6.6vw,30px);line-height:1.1;letter-spacing:-.65px;padding:0 2px}.vsl-sub{width:100%;max-width:390px;font-size:14px;line-height:1.45;margin:18px auto 22px;padding:0 4px}.video-shell{width:min(100%,400px);max-width:100%;padding:3px}.video#vsl vturb-smartplayer{max-width:100%!important}.note{font-size:10px;padding:0 8px}}
+    @media(max-width:390px){.alert{min-height:44px;padding:8px 7px;font-size:clamp(15px,5vw,19px);letter-spacing:.15px}.wrap{width:calc(100% - 18px)}.hero{padding-top:23px}.vsl-headline{font-size:clamp(21px,6.5vw,26px)}.vsl-sub{font-size:13px;margin-top:16px}}
   </style>
 <!-- Meta Pixel Code -->
 <script>
-!function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?
-n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;
-n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;
-t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}
-(window,document,'script','https://connect.facebook.net/en_US/fbevents.js');
-fbq('init','954116897261250');fbq('track','PageView');
+!function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,document,'script','https://connect.facebook.net/en_US/fbevents.js');
+fbq('init','954116897261250');window.metaPageViewEventId='pv_'+Date.now()+'_'+Math.random().toString(36).slice(2);fbq('track','PageView',{}, {eventID:window.metaPageViewEventId});
 </script>
 <!-- End Meta Pixel Code -->
 </head>
 <body>
-<noscript><img height="1" width="1" style="display:none"
-src="https://www.facebook.com/tr?id=954116897261250&ev=PageView&noscript=1"/></noscript>
-  <div class="alert">ASSISTA ANTES QUE SAIA DO AR</div>
-
-  <main class="wrap hero">
-    <div class="eyebrow">Jornada da Prosperidade</div>
-    <h1 class="vsl-headline">
-      Prática de <strong>20 minutos</strong> para ajudar você a romper padrões que estão
-      <span class="gold-inline">limitando você encontrar o seu verdadeiro amor.</span>
-    </h1>
-
-    <p class="sub vsl-sub">
-      Práticas diárias para reconhecer o que influencia suas escolhas, fortalecer novos comportamentos e construir novos caminhos para sua vida.
-    </p>
-
-    <section class="video-shell" aria-label="Área do vídeo">
-      <div class="video" id="vsl">
-        <vturb-smartplayer id="vid-6ace88f04a24cd40a8c58eb0" style="display:block;margin:0 auto;width:100%;max-width:400px;">
-          <div class="vturb-player-placeholder" style="position:relative;width:100%;padding:177.77777777777777% 0 0;z-index:0;background-color:black;"></div>
-        </vturb-smartplayer>
-        <script type="text/javascript">
-          var s=document.createElement("script");
-          s.src="https://scripts.converteai.net/f6917bf6-ea02-44f4-9026-2f0308476730/players/6ace88f04a24cd40a8c58eb0/v4/player.js";
-          s.async=!0;
-          document.head.appendChild(s);
-        </script>
-      </div>
-    </section>
-    <p class="note">Ative o som e assista à apresentação completa.</p>
-  </main>
-
-
-</body>
-</html>
-
-<style>
-  .video#vsl{
-    display:block !important;
-    aspect-ratio:auto !important;
-    background:transparent !important;
-    overflow:visible !important;
-  }
-  .video#vsl vturb-smartplayer{
-    width:100% !important;
-    max-width:400px !important;
-    margin:0 auto !important;
-  }
-  @media(max-width:768px){
-    .video-shell{width:min(100%,400px) !important;}
-    .video#vsl vturb-smartplayer{max-width:100% !important;}
-  }
-</style>
+<noscript><img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=954116897261250&ev=PageView&noscript=1"/></noscript>
+<div class="alert">ASSISTA ANTES QUE SAIA DO AR</div>
+<main class="wrap hero">
+<div class="eyebrow">Jornada da Prosperidade</div>
+<h1 class="vsl-headline">Prática de <strong>20 minutos</strong> para ajudar você a romper padrões que estão <span class="gold-inline">limitando você encontrar o seu verdadeiro amor.</span></h1>
+<p class="vsl-sub">Práticas diárias para reconhecer o que influencia suas escolhas, fortalecer novos comportamentos e construir novos caminhos para sua vida.</p>
+<section class="video-shell" aria-label="Área do vídeo"><div class="video" id="vsl">
+<vturb-smartplayer id="vid-6ace88f04a24cd40a8c58eb0" style="display:block;margin:0 auto;width:100%;max-width:400px;"><div class="vturb-player-placeholder" style="position:relative;width:100%;padding:177.77777777777777% 0 0;z-index:0;background-color:black;"></div></vturb-smartplayer>
+<script type="text/javascript">var s=document.createElement('script');s.src='https://scripts.converteai.net/f6917bf6-ea02-44f4-9026-2f0308476730/players/6ace88f04a24cd40a8c58eb0/v4/player.js';s.async=!0;document.head.appendChild(s);</script>
+</div></section><p class="note">Ative o som e assista à apresentação completa.</p>
+</main>
+<script>(function(){function sendMetaPageView(){fetch('/api/meta-event',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({event_name:'PageView',event_id:window.metaPageViewEventId,event_source_url:window.location.href}),keepalive:true}).catch(function(){})}if(document.readyState==='loading'){document.addEventListener('DOMContentLoaded',sendMetaPageView)}else{sendMetaPageView()}})();</script>
+</body></html>
