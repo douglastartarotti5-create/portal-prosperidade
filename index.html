@@ -17,6 +17,7 @@
     .video#vsl{display:block;background:transparent;border-radius:4px;overflow:visible;position:relative}.video#vsl vturb-smartplayer{width:100%!important;max-width:400px!important;margin:0 auto!important}.note{font-size:12px;color:#8e918d;margin:13px 0 0}
     @media(max-width:768px){.alert{min-height:48px;padding:10px 12px;font-size:clamp(16px,5.2vw,24px);line-height:1.12;letter-spacing:.4px;white-space:normal}.wrap{width:calc(100% - 24px);max-width:100%}.hero{padding:28px 0 20px}.eyebrow{font-size:10px;letter-spacing:1.7px}.vsl-headline{width:100%;font-size:clamp(22px,6.6vw,30px);line-height:1.1;letter-spacing:-.65px;padding:0 2px}.vsl-sub{width:100%;max-width:390px;font-size:14px;line-height:1.45;margin:18px auto 22px;padding:0 4px}.video-shell{width:min(100%,400px);max-width:100%;padding:3px}.video#vsl vturb-smartplayer{max-width:100%!important}.note{font-size:10px;padding:0 8px}}
     @media(max-width:390px){.alert{min-height:44px;padding:8px 7px;font-size:clamp(15px,5vw,19px);letter-spacing:.15px}.wrap{width:calc(100% - 18px)}.hero{padding-top:23px}.vsl-headline{font-size:clamp(21px,6.5vw,26px)}.vsl-sub{font-size:13px;margin-top:16px}}
+    .video-status{display:flex;align-items:center;justify-content:center;gap:9px;margin:15px auto 0;color:#d4c6a6;font-size:12px;line-height:1.4;text-align:center}.video-status-dot{position:relative;display:inline-block;width:8px;height:8px;flex:0 0 8px;border-radius:50%;background:#22c55e}.video-status-dot::after{content:"";position:absolute;inset:0;border-radius:50%;background:#22c55e;animation:video-status-pulse 1.7s ease-out infinite}@keyframes video-status-pulse{0%{transform:scale(1);opacity:.75}85%,100%{transform:scale(2.6);opacity:0}}@media(prefers-reduced-motion:reduce){.video-status-dot::after{animation:none;opacity:0}}
   </style>
 <!-- Meta Pixel Code -->
 <script>
@@ -35,7 +36,7 @@ fbq('init','954116897261250');window.metaPageViewEventId='pv_'+Date.now()+'_'+Ma
 <section class="video-shell" aria-label="Área do vídeo"><div class="video" id="vsl">
 <vturb-smartplayer id="vid-6af670f9093dfb96f107abeb" style="display: block; margin: 0 auto; width: 100%; max-width: 400px;"><div class="vturb-player-placeholder" style="position: relative; width: 100%; padding: 177.77777777777777% 0 0; z-index: 0; background-color: black;"></div></vturb-smartplayer>
 <script type="text/javascript">var s=document.createElement("script");s.src="https://scripts.converteai.net/ee959ed9-71d8-4db0-ab62-5ca8f0d2ba24/players/6af670f9093dfb96f107abeb/v4/player.js";s.async=!0;document.head.appendChild(s);</script>
-</div></section><p class="note">Ative o som e assista à apresentação completa.</p>
+</div></section><div class="video-status"><span class="video-status-dot" aria-hidden="true"></span><span>Apresentação disponível agora</span></div><p class="note">Ative o som e assista à apresentação completa.</p>
 </main>
 <script>(function(){function sendMetaPageView(){fetch('/api/meta-event',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({event_name:'PageView',event_id:window.metaPageViewEventId,event_source_url:window.location.href}),keepalive:true}).catch(function(){})}if(document.readyState==='loading'){document.addEventListener('DOMContentLoaded',sendMetaPageView)}else{sendMetaPageView()}})();</script>
 </body></html>
